@@ -9,6 +9,9 @@
       <TaskForm />
     </div>
 
+    <!-- loading -->
+
+    <div class="loading" v-if="taskStore.isLoading">Loading Tasks</div>
     <!-- filter -->
     <nav class="filter">
       <button @click="filter = 'all'">All task</button>
@@ -39,6 +42,9 @@ import TaskForm from './components/TaskForm.vue';
 import { useTaskStore } from './stores/TaskStore';
 import { ref } from 'vue'
 const taskStore = useTaskStore()
+
+//fetch tasks
+taskStore.getTasks();
 
 const filter = ref("all")
 </script>
